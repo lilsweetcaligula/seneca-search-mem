@@ -1,3 +1,4 @@
+const Assert = require('assert')
 const Seneca = require('seneca')
 const SenecaSearchMem = require('./search-mem')
 
@@ -12,9 +13,7 @@ async function run() {
 
       storeFields: ['name', 'extra'], // <~~ return-able fields
 
-      searchOptions: {
-        fuzzy: 0.2
-      }
+      searchOptions: {}
     }
   })
 
@@ -22,9 +21,19 @@ async function run() {
   seneca.use('promisify')
 
 
-  const out = await seneca.post('sys:search,cmd:search', {
-    query: 'bob'
-  })
+  const docs = [
+    { id: '1001', name: 'bob' },
+    { id: '1002', name: 'foo', extra: 'bob' }
+  ]
+
+  for (const doc of docs) {
+    await seneca.post('sys:search,cmd:add', { doc })
+      .then(added => Assert(added.ok))
+  }
+
+
+  const out = await seneca.post('sys:search,cmd:search',
+    { query: 'bob' })
 
   console.dir(out, { depth: 32 }) // dbg
 

@@ -13,19 +13,26 @@ function search_mem(options) {
   const minisearch = new Minisearch(search_config)
 
 
-  /*
-   * BEGIN: DEBUG
-   */
+  seneca.add('sys:search,cmd:add', function (msg, reply) {
+    if (null == msg.doc) {
+      return {
+        ok: false,
+        why: 'invalid-field',
+        details: {
+          path: ['doc'],
+          why_exactly: 'required'
+        }
+      }
+    }
 
-  minisearch.addAll([
-    { id: '1000', name: 'bob' },
-    { id: '1001', name: 'boba' },
-    { id: '1002', name: 'foo', extra: 'bobb' }
-  ])
+    const { doc } = msg
 
-  /*
-   * END: DEBUG
-   */
+
+    minisearch.add(doc)
+
+
+    return reply(null, { ok: true })
+  })
 
 
   seneca.add('sys:search,cmd:search', function (msg, reply) {
