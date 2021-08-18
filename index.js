@@ -10,6 +10,8 @@ async function run() {
     search: {
       fields: ['name', 'extra'], // <~~ query-able fields
 
+      storeFields: ['name', 'extra'], // <~~ return-able fields
+
       searchOptions: {
         fuzzy: 0.2
       }

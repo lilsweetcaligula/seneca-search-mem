@@ -53,7 +53,26 @@ function search_mem(options) {
     console.dir(out, { depth: 32 }) // dbg
 
 
-    return reply(null, { ok: true })
+    const hits = out.map(hit => {
+      const { id } = hit
+
+
+      const fields = search_config.storeFields || []
+
+      const doc = fields.reduce((acc, k) => {
+        if (k in hit) {
+          acc[k] = hit[k]
+        }
+
+        return acc
+      }, {})
+
+
+      return { id, doc }
+    })
+
+
+    return reply(null, { ok: true, data: { hits } })
   })
 
 
