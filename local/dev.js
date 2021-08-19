@@ -1,6 +1,6 @@
 const Assert = require('assert')
 const Seneca = require('seneca')
-const SenecaSearchMem = require('./search-mem')
+const SenecaSearchMem = require('../search-mem')
 
 
 async function run() {
@@ -27,15 +27,15 @@ async function run() {
   ]
 
   for (const doc of docs) {
-    await seneca.post('sys:search,cmd:add', { doc })
-      .then(added => Assert(added.ok))
+    const added = await seneca.post('sys:search,cmd:add', { doc })
+    Assert(added.ok)
   }
 
 
   const out = await seneca.post('sys:search,cmd:search',
     { query: 'bob' })
 
-  console.dir(out, { depth: 32 }) // dbg
+  console.dir(out, { depth: 32 })
 
 
   return

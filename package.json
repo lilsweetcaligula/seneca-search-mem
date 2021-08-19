@@ -2,7 +2,7 @@
   "name": "seneca-search-mem",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "search-mem.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
