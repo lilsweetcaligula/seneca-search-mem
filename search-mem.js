@@ -57,8 +57,6 @@ function search_mem(options) {
      */
     const out = minisearch.search(query)
 
-    console.dir(out, { depth: 32 }) // dbg
-
 
     const hits = out.map(hit => {
       const { id } = hit
