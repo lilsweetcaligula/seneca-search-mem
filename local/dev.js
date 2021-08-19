@@ -1,6 +1,6 @@
 const Assert = require('assert')
 const Seneca = require('seneca')
-const SenecaSearchMem = require('./search-mem')
+const SenecaSearchMem = require('../search-mem')
 
 
 async function run() {
