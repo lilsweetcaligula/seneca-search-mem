@@ -12,6 +12,27 @@ function search_mem(options) {
   const { search: search_config } = options
   const minisearch = new Minisearch(search_config)
 
+  
+  /* NOTE: Minisearch does not support removal by id. To remove
+   * a document, you have to pass it whole to the #remove method.
+   * For example:
+   * ```
+   *   minisearch.add({ id: 'aaa', value: 'zzz' })
+   *   minisearch.remove({ id: 'aaa', value: 'zzz' })
+   * ```
+   *
+   * In order to implement the API that removes a document by id,
+   * we have to store the id->document mapping.
+   *
+   * Additionally, Minisearch currently allows documents with
+   * duplicate ids to be added. That is something we want to guard
+   * against, too. For more information on this, please see:
+   *
+   * https://github.com/lucaong/minisearch/issues/101
+   *
+   */
+  const ids_to_docs = new Map()
+
 
   seneca.add('sys:search,cmd:add', function (msg, reply) {
     if (null == msg.doc) {
@@ -28,7 +49,26 @@ function search_mem(options) {
     const { doc } = msg
 
 
+    if (null == typeof doc.id) {
+      return {
+        ok: false,
+        why: 'invalid-field',
+        details: {
+          path: ['doc', 'id'],
+          why_exactly: 'required'
+        }
+      }
+    }
+
+    const { id: doc_id } = doc
+
+
+    if (ids_to_docs.has(doc_id)) {
+      return reply(new Error('A document with the id already exists'))
+    }
+
     minisearch.add(doc)
+    ids_to_docs.set(doc_id, doc)
 
 
     return reply(null, { ok: true })
@@ -78,6 +118,36 @@ function search_mem(options) {
 
 
     return reply(null, { ok: true, data: { hits } })
+  })
+
+
+  seneca.add('sys:search,cmd:remove', async function (msg, reply) {
+    if (null == msg.id) {
+      return {
+        ok: false,
+        why: 'invalid-field',
+        details: {
+          path: ['id'],
+          why_exactly: 'required'
+        }
+      }
+    }
+
+    const { id: doc_id } = msg
+
+
+    const doc = ids_to_docs.get(doc_id)
+
+    if (null == doc) {
+      return reply(null, { ok: false, why: 'remove-failed' })
+    }
+
+
+    minisearch.remove(doc)
+    ids_to_docs.delete(doc_id)
+
+
+    return reply(null, { ok: true })
   })
 
 

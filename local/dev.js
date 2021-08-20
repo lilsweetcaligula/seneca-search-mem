@@ -32,10 +32,18 @@ async function run() {
   }
 
 
-  const out = await seneca.post('sys:search,cmd:search',
-    { query: 'bob' })
+  console.dir(await seneca.post('sys:search,cmd:search',
+    { query: 'bob' }), { depth: 32 })
 
-  console.dir(out, { depth: 32 })
+
+  const removed = await seneca.post('sys:search,cmd:remove',
+    { id: '1002' })
+
+  Assert(removed.ok)
+
+
+  console.dir(await seneca.post('sys:search,cmd:search',
+    { query: 'bob' }), { depth: 32 })
 
 
   return
