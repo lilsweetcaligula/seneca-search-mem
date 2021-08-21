@@ -4,14 +4,16 @@
   "description": "",
   "main": "search-mem.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/jasmine/bin/jasmine.js --config=test/support/jasmine.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jasmine": "3.8.0",
     "seneca": "3.23.3",
-    "seneca-promisify": "2.0.0"
+    "seneca-promisify": "2.0.0",
+    "seneca-search-test": "file:../seneca-search-test"
   },
   "dependencies": {
     "minisearch": "3.0.4"
