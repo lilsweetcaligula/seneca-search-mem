@@ -10,17 +10,17 @@ describe('Compliance tests', () => {
     seneca.ready(done)
   })
 
-  Shared.supports_add({
-    seneca
-  })
+  Shared.supports_add({ seneca })
 
-  Shared.supports_search({
-    seneca
-  })
+  Shared.supports_search({ seneca })
 
-  Shared.supports_remove({
-    seneca
-  })
+  Shared.supports_remove({ seneca })
+
+  Shared.remove({ seneca })
+
+  Shared.add({ seneca })
+
+  Shared.search({ seneca })
 })
 
 
@@ -29,7 +29,8 @@ function make_seneca() {
 
   si.use(SearchMem, {
     search: {
-      fields: ['lorem', 'ipsum']
+      fields: ['lorem', 'ipsum'],
+      storeFields: ['lorem', 'ipsum']
     }
   })
 
