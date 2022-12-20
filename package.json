@@ -4,7 +4,7 @@
   "description": "",
   "main": "search-mem.js",
   "scripts": {
-    "test": "./node_modules/jasmine/bin/jasmine.js --config=test/support/jasmine.json"
+    "test": "./node_modules/jasmine/bin/jasmine.js --config=test/support/jasmine.jso"
   },
   "keywords": [],
   "author": "",
