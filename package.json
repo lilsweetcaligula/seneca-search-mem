@@ -4,6 +4,7 @@
   "description": "",
   "main": "search-mem.js",
   "scripts": {
+    "prep-dev": "yarn link seneca-search-test",
     "test": "./node_modules/jasmine/bin/jasmine.js --config=test/support/jasmine.json"
   },
   "keywords": [],
