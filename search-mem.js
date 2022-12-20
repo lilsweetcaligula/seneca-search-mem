@@ -67,6 +67,7 @@ function search_mem(options) {
       return reply(new Error('A document with the id already exists'))
     }
 
+
     minisearch.add(doc)
     ids_to_docs.set(doc_id, doc)
 
@@ -76,6 +77,8 @@ function search_mem(options) {
 
 
   seneca.add('sys:search,cmd:search', function (msg, reply) {
+    const opts = msg.opts || {}
+
     if (null == msg.query) {
       return {
         ok: false,
@@ -89,13 +92,12 @@ function search_mem(options) {
 
     const { query } = msg
 
-
     /* NOTE: For more information, please see documentation at:
      *
      * https://www.npmjs.com/package/minisearch
      *
      */
-    const out = minisearch.search(query)
+    const out = minisearch.search(query, opts)
 
 
     const hits = out.map(hit => {
