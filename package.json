@@ -9,7 +9,15 @@
     "test": "jest --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Richard Rodger",
+    "email": "richard@voxgig.com",
+    "url": "http://richardrodger.com/"
+  },
+  "contributors": [
+    "https://github.com/lilsweetcaligula",
+    "https://github.com/BeAllAround"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@seneca/doc": "4.1.0",
