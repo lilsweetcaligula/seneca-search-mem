@@ -6,7 +6,10 @@ function search_mem(options) {
 
 
   if (null == options.search) {
-    return seneca.fail('The "search" option is required')
+    return {ok: false,
+            why: 'invalid-search',
+    }
+    // return seneca.fail('The "search" option is required')
   }
 
   const { search: search_config } = options
