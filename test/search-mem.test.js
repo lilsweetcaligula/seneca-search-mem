@@ -1,5 +1,6 @@
 const Seneca = require('seneca')
 const Shared = require('seneca-search-test')
+
 const SearchMem = require('../search-mem')
 
 
