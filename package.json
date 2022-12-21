@@ -5,6 +5,7 @@
   "main": "search-mem.js",
   "scripts": {
     "prep-dev": "yarn link seneca-search-test",
+    "seneca-doc": "seneca-doc",
     "test": "jest --coverage"
   },
   "keywords": [],
