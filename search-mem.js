@@ -80,7 +80,7 @@ function search_mem(options) {
 
 
   seneca.add('sys:search,cmd:search', function (msg, reply) {
-    const opts = msg.opts || {}
+    const params = msg.params || {}
 
     if (null == msg.query) {
       return {
@@ -100,7 +100,7 @@ function search_mem(options) {
      * https://www.npmjs.com/package/minisearch
      *
      */
-    const out = minisearch.search(query, opts)
+    const out = minisearch.search(query, params)
 
 
     const hits = out.map(hit => {
