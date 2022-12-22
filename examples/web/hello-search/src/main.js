@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 
-const SearchMem = require('../../../../search-mem')
+const SearchMem = require('../../../../search-mini')
 /* eslint-disable */
 
 async function start(opts) {

@@ -3,7 +3,7 @@ const Shared = require('seneca-search-test')
 
 const PluginValidator = require('seneca-plugin-validator')
 
-const SearchMem = require('../search-mem')
+const SearchMem = require('../search-mini')
 
 
 
