@@ -1,7 +1,13 @@
 const Seneca = require('seneca')
 const Shared = require('seneca-search-test')
+
+const PluginValidator = require('seneca-plugin-validator')
+
 const SearchMem = require('../search-mem')
 
+
+
+test('validate', PluginValidator(SearchMem, module))
 
 describe('Compliance tests', () => {
   const seneca = make_seneca()
@@ -32,8 +38,7 @@ function make_seneca() {
       fields: ['lorem', 'ipsum'],
       storeFields: ['lorem', 'ipsum']
     }
-  })
+  }).use('doc')
 
   return si
 }
-

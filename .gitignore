@@ -1,2 +1,13 @@
 node_modules
 package-lock.json
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+
+
+yarn-debug.log*
+yarn-error.log*
+
+package-lock.json
+yarn.lock
