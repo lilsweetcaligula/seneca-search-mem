@@ -2,7 +2,7 @@
   "name": "@seneca/search-mini",
   "version": "0.1.0",
   "description": "",
-  "main": "search-mem.js",
+  "main": "search-mini.js",
   "scripts": {
     "prep-dev": "yarn link seneca-search-test",
     "doc": "seneca-doc",
