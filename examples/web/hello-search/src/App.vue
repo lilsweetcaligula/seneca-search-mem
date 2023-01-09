@@ -22,7 +22,7 @@ export default {
       let results = document.querySelector('#results')
       let query = input.target.value
       let out = await this.$main.seneca.post('sys:search,cmd:search', 
-        {query, params: {prefix: true,}
+        {query, params: {prefix: true, fuzzy: 0.2,}
       })
       let hits = out.data.hits
 

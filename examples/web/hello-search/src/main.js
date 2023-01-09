@@ -77,7 +77,7 @@ async function start(opts) {
 
   async function search_test() {
     let out = await seneca.post('sys:search,cmd:search', 
-      {query: 'drama', opts: {},
+      {query: 'drama', params: {},
     })
     console.log('search out: ', out)
   }
