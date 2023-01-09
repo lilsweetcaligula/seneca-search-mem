@@ -13,7 +13,7 @@ function search_mem(options) {
   }
 
   const { search: search_config } = options
-  const minisearch = new Minisearch(search_config)
+  const minisearch = Minisearch.default ? new Minisearch.default(search_config) : new Minisearch(search_config)
 
   
   /* NOTE: Minisearch does not support removal by id. To remove
