@@ -10,9 +10,7 @@ const SearchMem = require('../search-mini')
 
 test('validate', PluginValidator(SearchMem, module))
 
-test('seneca maintain', () => {
-  Maintain()
-})
+test('maintain', Maintain)
 
 describe('Compliance tests', () => {
   const seneca = make_seneca()
