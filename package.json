@@ -30,11 +30,12 @@
   "license": "ISC",
   "devDependencies": {
     "@seneca/doc": "4.1.0",
+    "@seneca/maintain": "^0.0.23",
     "jest": "29.3.1",
     "seneca": "3.29.0",
+    "seneca-plugin-validator": "0.6.1",
     "seneca-promisify": "2.0.0",
-    "seneca-search-test": "git+ssh://git@github.com:senecajs/seneca-search-test.git",
-    "seneca-plugin-validator": "0.6.1"
+    "seneca-search-test": "git+ssh://git@github.com:senecajs/seneca-search-test.git"
   },
   "dependencies": {
     "minisearch": "6.0.0"

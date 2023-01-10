@@ -2,12 +2,17 @@ const Seneca = require('seneca')
 const Shared = require('seneca-search-test')
 
 const PluginValidator = require('seneca-plugin-validator')
+const { Maintain } = require('@seneca/maintain')
 
 const SearchMem = require('../search-mini')
 
 
 
 test('validate', PluginValidator(SearchMem, module))
+
+test('seneca maintain', () => {
+  Maintain()
+})
 
 describe('Compliance tests', () => {
   const seneca = make_seneca()
