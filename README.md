@@ -60,6 +60,7 @@ let out = await seneca.post('sys:search,cmd:search',
   // perform a search by query: { query: String, params: Object }
   {query: 'drama', params: {},
 })
+
 // access the hits of the performed search for reuse
 console.log('search hits: ', out.data.hits)
   
