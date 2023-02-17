@@ -57,11 +57,11 @@ let docs = [
 
 for(const doc of docs) { // make sure to index all the documents
   // index a document
-  await seneca.post('sys:search,cmd:add', { doc, }) // { doc: { id: 'id', ... } }
+  await seneca.post('sys:search, cmd:add', { doc, }) // { doc: { id: 'id', ... } }
 }
 
 
-let out = await seneca.post('sys:search,cmd:search',
+let out = await seneca.post('sys:search, cmd:search',
   // perform a search by query: { query: String, params: Object }
   {
     query: 'drama',
@@ -77,7 +77,15 @@ console.log('search hits: ', out.data.hits)
 
 let doc = docs[0]
 await seneca.post('sys:search, cmd:remove', { ...doc, })
-  
+
+
+// This is especially useful when you need to update the doc
+// and make it present next time you apply 'sys:search, cmd:search'
+
+doc.text = "new text ..."
+await seneca.post('sys:search, cmd:remove', { ...doc, })
+await seneca.post('sys:search, cmd:add', { doc, })
+
 ```
 
 
