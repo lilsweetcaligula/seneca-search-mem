@@ -55,6 +55,13 @@ for(const doc of docs) { // make sure to index all the documents
   // index a document
   await seneca.post('sys:search,cmd:add', {doc,})
 }
+
+let out = await seneca.post('sys:search,cmd:search',
+  // perform a search by query: { query: String, params: Object }
+  {query: 'drama', params: {},
+})
+// access the hits of the performed search for reuse
+console.log('search hits: ', out.data.hits)
   
 ```
 
