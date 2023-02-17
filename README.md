@@ -96,6 +96,8 @@ await seneca.post('sys:search, cmd:add', { doc, })
 
 ## Support
 
+Check out our sponsors and supporters, Voxgig, on their website [here](https://www.voxgig.com).
+
 ## API
 
 ## Contributing
