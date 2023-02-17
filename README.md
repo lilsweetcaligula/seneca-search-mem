@@ -60,7 +60,11 @@ for(const doc of docs) { // make sure to index all the documents
 
 let out = await seneca.post('sys:search,cmd:search',
   // perform a search by query: { query: String, params: Object }
-  {query: 'drama', params: {},
+  {
+    query: 'drama',
+    params: {},
+    // params: {prefix: true, fuzzy: 0.2,} // params usage example
+    // more on: https://lucaong.github.io/minisearch/#search-options
 })
 
 // access the hits of the performed search for reuse
