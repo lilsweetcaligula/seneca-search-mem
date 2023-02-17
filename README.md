@@ -20,7 +20,7 @@ $ npm install @seneca/search-mini
 ## Quick Example
 
 ```js
-// for a live example - please, run the web example from examples/web locally after running yarn install
+// for a live example - please, run the web example from examples/web locally after running npm install
 const SearchMini = require('@seneca/search-mini')
 
 seneca
