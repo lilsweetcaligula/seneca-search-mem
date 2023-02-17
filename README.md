@@ -2,7 +2,7 @@
 
 > Run standardisation tests on your [Seneca.js](https://www.npmjs.com/package/seneca) plugin.
 
-# seneca-search-mini
+# @seneca/search-mini
 
 | ![Voxgig](https://www.voxgig.com/res/img/vgt01r.png) | This open source module is sponsored and supported by [Voxgig](https://www.voxgig.com). |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
