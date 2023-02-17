@@ -19,6 +19,41 @@ $ npm install @seneca/search-mini
 
 ## Quick Example
 
+```js
+const SearchMini = require('@seneca/search-mini')
+
+seneca
+  .test()
+  .use(SearchMem, {
+    search: {
+      // fields to be used for each search to be performed
+      fields: ['text', 'category'],
+      // fields to be stored in the hits after the performed search
+      // more on this: https://lucaong.github.io/minisearch
+      storeFields: ['text', 'category']
+    }
+
+  })
+
+let docs = [
+  {
+    id: 1,
+    title: 'Moby Dick',
+    text: 'Call me Ishmael. Some years ago...',
+    category: 'fiction'
+  },
+  {
+    id: 2,
+    title: 'Zen and the Art of Motorcycle Maintenance',
+    text: 'I can see by my watch...',
+    category: 'fiction'
+  },
+  // ...
+] 
+
+```
+
+
 
 ## More Examples
 
