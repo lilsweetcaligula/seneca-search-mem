@@ -10,6 +10,10 @@
 A Seneca search plugin for local testing based on the Minisearch package
 
 ## Install
+```sh
+$ npm i @seneca/search-mini
+```
+
 
 
 
