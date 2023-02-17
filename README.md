@@ -74,6 +74,9 @@ let out = await seneca.post('sys:search,cmd:search',
 console.log('search hits: ', out.data.hits)
 
 // Removing a doc
+
+let doc = docs[0]
+await seneca.post('sys:search, cmd:remove', { ...doc, })
   
 ```
 
