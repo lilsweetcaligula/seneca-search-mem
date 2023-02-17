@@ -82,6 +82,7 @@ await seneca.post('sys:search, cmd:remove', { ...doc, })
 // This is especially useful when you need to update the doc
 // and make it present next time you apply 'sys:search, cmd:search'
 
+let doc = docs[1]
 doc.text = "new text ..."
 await seneca.post('sys:search, cmd:remove', { ...doc, })
 await seneca.post('sys:search, cmd:add', { doc, })
