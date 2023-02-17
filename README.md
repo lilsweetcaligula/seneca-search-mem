@@ -24,7 +24,7 @@ const SearchMini = require('@seneca/search-mini')
 
 seneca
   .test()
-  .use(SearchMem, {
+  .use(SearchMini, {
     search: {
       // fields to be used for each search to be performed
       fields: ['text', 'category'],
