@@ -21,7 +21,10 @@ $ npm install @seneca/search-mini
 
 ```js
 // for a live example - please, run the web example from examples/web locally after running npm install
+const Seneca = require('seneca')
 const SearchMini = require('@seneca/search-mini')
+
+const seneca = Seneca({ log: 'test' })
 
 seneca
   .test()
@@ -69,6 +72,8 @@ let out = await seneca.post('sys:search,cmd:search',
 
 // access the hits of the performed search for reuse
 console.log('search hits: ', out.data.hits)
+
+// Removing a doc
   
 ```
 
