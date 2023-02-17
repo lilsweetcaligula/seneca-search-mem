@@ -51,6 +51,11 @@ let docs = [
   // ...
 ] 
 
+for(const doc of docs) { // make sure to index all the documents
+  // index a document
+  await seneca.post('sys:search,cmd:add', {doc,})
+}
+  
 ```
 
 
